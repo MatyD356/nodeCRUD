@@ -9,9 +9,13 @@ var mongoose = require('mongoose')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
+var compression = require('compression');
+var helmet = require('helmet');
 
 
 var app = express();
+app.use(compression());
+app.use(helmet());
 
 //database setup
 var mongoDB = process.env.MONGO_DB_LINK
